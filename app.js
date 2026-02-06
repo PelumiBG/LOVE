@@ -11,7 +11,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 
 app.use(express.json());
-app.cors({origin: 'http://localhost:7000'});
+app.use(cors({origin: 'http://localhost:7000/'}));
 app.use(helmet());
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'view'));
