@@ -13,7 +13,7 @@ router.post('/submit', (req, res) => {
         return res.render('ques', { name: userName, message: 'Error: No answer provided' });
     }
     if(message.toLowerCase() === 'yes') {
-        return res.render('index', { message: userName });
+        return res.render('index', { message: 'JB'});
     } else {
         return res.render('ques', { name: userName, message: 'Sorry can\'t view this Letter' });
     }
