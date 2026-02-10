@@ -165,10 +165,10 @@
     <div class="heart">💖</div>
   </div>
   <div class="card">
-    <h1>Will You Be My Valentine <%= name %>? 💖</h1>
+    <h1>Care To Open This Short Note <%= name %>? 💖</h1>
     <form action="/submit" method="POST">
-      <textarea id="message" name="message" rows="1" required></textarea>
-      <button type="submit">Submit</button>
+      <textarea id="message" name="message" rows="1"></textarea>
+      <button type="submit">Continue</button>
     </form>
     <% if (message) { %>
       <div class="message-display"><%= message %></div>
