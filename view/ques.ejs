@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Valentine’s Day 💖</title>
+  <title>Will You Be My Valentine? 💖</title>
 
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap');
+
     body {
       margin: 0;
       min-height: 100vh;
@@ -32,77 +34,65 @@
       position: relative;
       z-index: 1;
       border: 3px solid #e84393;
+      animation: fadeUp 1.2s ease forwards;
     }
 
     h1 {
+      font-family: 'Playfair Display', serif;
       font-size: 2.5em;
       color: #e91e63;
       margin-bottom: 20px;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     }
 
-    p {
-      font-size: 1.1em;
-      line-height: 1.6;
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      font-weight: 500;
       color: #333;
-      margin-bottom: 20px;
+      text-align: left;
     }
 
-    .hearts {
-      font-size: 2em;
-      margin: 20px 0;
-      animation: pulse 2s infinite;
+    input, textarea {
+      padding: 10px;
+      border: 2px solid #e91e63;
+      border-radius: 10px;
+      font-size: 1em;
+      background: rgba(255, 255, 255, 0.8);
+      transition: border-color 0.3s ease;
     }
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #c2185b;
     }
 
-    .closing {
-      font-weight: bold;
-      font-size: 1.2em;
-      margin-top: 20px;
-      color: #c2185b;
-    }
-
-    .signature {
-      margin-top: 30px;
-      font-style: italic;
-      font-size: 1.2em;
-      color: #880e4f;
-    }
-
-    .surprise-button {
-      margin-top: 20px;
+    button {
       padding: 12px 24px;
-      background-color: #e91e63;
+      background: linear-gradient(135deg, #e91e63, #ff4d6d);
       color: white;
       border: none;
       border-radius: 25px;
       cursor: pointer;
       font-size: 1em;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
-    .surprise-button:hover {
-      background-color: #c2185b;
+    button:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
 
-    .surprise-message {
-      display: none;
-      margin-top: 20px;
-      font-size: 1.1em;
-      color: #333;
-      font-style: italic;
-      animation: fadeIn 1s ease-in;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    .message-display {
+      margin-top: 10px;
+      font-size: 1.2em;
+      color: #e91e63;
+      font-weight: bold;
     }
 
     .floating-hearts {
@@ -139,6 +129,11 @@
       100% { transform: translateY(-100px) rotate(360deg); }
     }
 
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     @media (max-width: 600px) {
       .card {
         padding: 30px 20px;
@@ -146,10 +141,6 @@
 
       h1 {
         font-size: 2em;
-      }
-
-      p {
-        font-size: 1em;
       }
 
       .heart {
@@ -171,41 +162,16 @@
     <div class="heart">💖</div>
     <div class="heart">❤️</div>
     <div class="heart">💖</div>
+  </div>
+  <div class="card">
+    <h1>Will You Be My Valentine <%= name %>? 💖</h1>
+    <form action="/submit" method="POST">
+      <textarea id="message" name="message" rows="1" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+    <% if (message) { %>
+      <div class="message-display"><%= message %></div>
+    <% } %>
+  </div>
 </body>
-  </div>
-  <% if (message) { %>
-    <div class="card">
-    <h1>Happy Valentine’s Day, My Love 💖</h1>
-    <p>
-      In your eyes, I see my forever. Your smile lights up my darkest days,
-      and in you I find peace. Your love is the greatest gift I’ve ever known,
-      and words can never fully describe how much it means to me.
-    </p>
-
-    <p>
-      I promise to stand by you every moment of my life, not just because we
-      celebrate love today, but because I want to spend my lifetime with you.
-      It’s not easy to stay committed in this generation, yet you’ve shown me
-      that real love truly exists, and I will never take that for granted.
-    </p>
-
-    <p>
-      Every moment with you feels like a dream I never want to wake from.
-      I cherish you, adore you, and love you endlessly, My OYE, Abike Mi,
-      Esther Omo Ojelabi.
-    </p>
-
-    <div class="hearts">❤️ ❤️ ❤️</div>
-
-    <div class="closing">
-      HAPPY VALENTINE ONCE AGAIN, BABY.<br />
-      I MISS YOU AND I’LL SEE YOU SOON…
-    </div>
-
-    <div class="signature">
-      Forever yours,<br />
-     <%= message %>
-    </div>
-    <%} %>
-  </div>
 </html>
