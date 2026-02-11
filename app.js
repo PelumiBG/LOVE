@@ -17,7 +17,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // allowed origin by cors
 app.use(cors({origin: ['http://localhost:7000/',
-    'https://love-u4os.onrender.com/'],
+    'https://love-u4os.onrender.com/',
+    'https://val-oyenike-jb.vercel.app/'],
     credentials: true}
 ));
 // Security middleware
